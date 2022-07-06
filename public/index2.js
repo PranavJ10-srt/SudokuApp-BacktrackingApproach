@@ -1,7 +1,7 @@
 console.log("JS connected");
 const boardArea = document.getElementById("sudoku-board");
 const button = document.getElementById('solve');
-const userInput = [];
+var userInput = [];
 var userstring="";
 let solvedAnswer = [];
 createBoard();
@@ -71,7 +71,7 @@ function createInputArray() {
 
   //=================================Sending userInput to server========================0
  //let jsonarray = arrayToJSONObject(userInput) ;
-  fetch('http://localhost:3000/', {
+  fetch('http://localhost:3000/' || process.env.PORT, {
       method: 'POST',
       body: JSON.stringify(obj),
       headers: {
